@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -18,7 +19,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -377,6 +380,25 @@ public class base {
 		public static void checkbox(WebElement Element) {
 			Element.click();
 		}
+		
+		// wait method
+		public static void waitmethod1(int t, String xpath ) {
+		
+		WebDriverWait wait = new WebDriverWait(driver, t);
+		
+		  List<WebElement> productList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("xpath")));
+		
+		  if (productList.size() > 1) {
+            WebElement secondProduct = productList.get(2);
+            secondProduct.click();
+		  }else {
+			  
+			  System.out.println("incomplete");
+		  }
+		  
+		
+		}
+		
 
 	}
 

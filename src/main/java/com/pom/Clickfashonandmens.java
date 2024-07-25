@@ -30,17 +30,20 @@ public class Clickfashonandmens {
 	@FindBy(xpath = "//input[@name = 'high-price']")
 	private WebElement max5000;
 	
-	@FindBy(xpath = "//span[text() = 'Go']//..//../input")
+	@FindBy(xpath = "//span[text() = 'Go']//..//../input") 
 	private WebElement go;
 	
-	@FindBy(xpath = "//div[@class=\"a-section a-spacing-small a-spacing-top-small\"]")
+	@FindBy(xpath = "//div[@class='a-section a-spacing-base a-text-center']")
 	private WebElement text;
 	
-//	@FindBy(xpath = "//div[@class=\"sg-col-4-of-24 sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20\"]")
-//	private WebElement productselect;
+	@FindBy(xpath = "//img[@data-image-index='2']")
+	private WebElement productselect;
 	
-	@FindBy(xpath = "//input[@id=\"add-to-cart-button\"]")
+	@FindBy(xpath = "//input[@value='Add to Cart']//parent::span")
 	private WebElement addtocart;
+	
+	@FindBy(xpath = "//select[contains(@name,'quantity.')]")
+	private WebElement increasequantity;
 	
 
 	public WebElement getAllensolly() {
@@ -88,6 +91,12 @@ public class Clickfashonandmens {
 	public WebElement getAddtocart() {
 		return addtocart;
 	}
+	
+	
+	public WebElement getIncreasequantity() {
+		return increasequantity;
+	}
+
 
 	public Clickfashonandmens(WebDriver dr) {
 
@@ -95,6 +104,7 @@ public class Clickfashonandmens {
 		PageFactory.initElements(driver, this);
 
 	}
+
 
 	
 

@@ -27,4 +27,6 @@ And user click second product of the page
 
 And user add to cart of that product
 
+And user increse one count on that product
+
 

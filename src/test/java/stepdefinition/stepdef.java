@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.pageobjectmanager.pageobject;
 
@@ -18,6 +20,8 @@ import io.cucumber.java.en.When;
 public class stepdef extends classrunner {
 
 	pageobject j = new pageobject(driver);
+	
+	WebDriver wait;
 
 	@Given("User Launch the Amazon Application Url")
 	public void user_launch_the_amazon_application_url() throws Exception {
@@ -115,30 +119,28 @@ public class stepdef extends classrunner {
 
 
 	@When("user click second product of the page")
-	public void user_click_second_product_of_the_page() {
+	public void user_click_second_product_of_the_page() throws Exception {
 		
-		 List<WebElement> findElements = driver.findElements(By.xpath("//div[@class=\\\"sg-col-4-of-24 sg-col-4-of-12 s-result-item s-asin sg-col-4-of-16 sg-col s-widget-spacing-small sg-col-4-of-20\\"));
-		
-		  if (findElements.size() > 1) {
-              WebElement secondProduct = findElements.get(1);
-              secondProduct.click();
-		  }
-		
+	   clickonelement(j.getCfm().getProductselect());
+		 
+		Thread.sleep(5000);
 	}
 
 	@When("user add to cart of that product")
-	public void user_add_to_cart_of_that_product() {
+	public void user_add_to_cart_of_that_product() throws Exception {
 		
 		clickonelement(j.getCfm().getAddtocart());
 	    
-		
+		Thread.sleep(5000);
 		
 	}
 
 	
-	
-	
-	
-	
+	@When("user increse one count on that product")
+	public void user_increse_one_count_on_that_product() {
+	   
+		dropdownmethods(j.getCfm().getIncreasequantity(), "value", "2");
+		
+	}
 	
 }
