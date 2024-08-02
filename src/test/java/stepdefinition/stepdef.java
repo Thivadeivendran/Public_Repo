@@ -28,6 +28,7 @@ public class stepdef extends classrunner {
 
 		urllaunch(filereadermanager.FileReaderr().geturl());
 		Thread.sleep(5000);
+		screenshot("Home Page");
 
 	}
 
@@ -36,7 +37,8 @@ public class stepdef extends classrunner {
 		
 		clickonelement(j.getCfm().getFashion());
 		Thread.sleep(5000);
-
+        screenshot("Fashion Page");
+		
 	}
 
 	@Then("user click the mens clothing button")
@@ -44,6 +46,7 @@ public class stepdef extends classrunner {
 		
 		clickonelement(j.getCfm().getMens());
 		Thread.sleep(5000);
+		screenshot("Mens Collection Page");
 
 	}
 
@@ -55,6 +58,7 @@ public class stepdef extends classrunner {
 		js_click(j.getCfm().getRating());
 		  clickonelement(j.getCfm().getRating());
 		  Thread.sleep(5000);
+		  
 	}
 
 	
@@ -78,9 +82,14 @@ public class stepdef extends classrunner {
 	}
 
 	@Given("user click the go button")
-	public void user_click_the_go_button() {
+	public void user_click_the_go_button() throws Exception {
 	   
 		clickonelement(j.getCfm().getGo());
+		
+		Thread.sleep(5000);
+		
+		screenshot("After Select Price");
+
 		
 	}
 	
@@ -102,6 +111,8 @@ public class stepdef extends classrunner {
 		clickonelement(j.getCfm().getUspolo());
 		
 		Thread.sleep(5000);
+		
+		screenshot("Selecting Brands");
 	  
 	}
 
@@ -110,9 +121,16 @@ public class stepdef extends classrunner {
 	@When("user print the numbers after filteraztion")
 	public void user_print_the_numbers_after_filteraztion() throws Exception {
 		
-		gettext(j.getCfm().getText());
-		
+		 WebDriverWait wait = new WebDriverWait(driver, 10);
+		 
+         List<WebElement> productList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[contains(@class, 's-main-slot')]//div[contains(@class, 's-result-item')]")));
+
+         // Get the count of elements
+         int count = productList.size();
+         System.out.println("Number of elements present: " + count);
+         
 		 Thread.sleep(5000);
+		 
 	   
 	}
 	
@@ -124,6 +142,8 @@ public class stepdef extends classrunner {
 	   clickonelement(j.getCfm().getProductselect());
 		 
 		Thread.sleep(5000);
+		
+		
 	}
 
 	@When("user add to cart of that product")
@@ -132,6 +152,8 @@ public class stepdef extends classrunner {
 		clickonelement(j.getCfm().getAddtocart());
 	    
 		Thread.sleep(5000);
+		
+		screenshot("Add to Cart Page");
 		
 	}
 

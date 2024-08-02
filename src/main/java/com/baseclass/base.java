@@ -128,7 +128,7 @@ public class base {
 
 			TakesScreenshot s = (TakesScreenshot) driver;
 			File screenshotAs = s.getScreenshotAs(OutputType.FILE);
-			File screen = new File("C:\\Users\\RAJA\\work\\cucumberA\\screenshotfolder\\" + Name + ".png");
+			File screen = new File("C:\\Users\\RAJA\\work\\amazondiva\\screenshots\\" + Name + ".png");
 			org.openqa.selenium.io.FileHandler.copy(screenshotAs, screen);
 
 		}
@@ -384,18 +384,12 @@ public class base {
 		// wait method
 		public static void waitmethod1(int t, String xpath ) {
 		
-		WebDriverWait wait = new WebDriverWait(driver, t);
-		
-		  List<WebElement> productList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("xpath")));
-		
-		  if (productList.size() > 1) {
-            WebElement secondProduct = productList.get(2);
-            secondProduct.click();
-		  }else {
-			  
-			  System.out.println("incomplete");
-		  }
-		  
+			 WebDriverWait wait = new WebDriverWait(driver, t);
+	            List<WebElement> productList = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("xpath") ));
+
+	            // Get the count of elements
+	            int count = productList.size();
+	            System.out.println("Number of elements present: " + count);
 		
 		}
 		

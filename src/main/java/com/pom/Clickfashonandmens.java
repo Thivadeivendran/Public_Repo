@@ -33,8 +33,8 @@ public class Clickfashonandmens {
 	@FindBy(xpath = "//span[text() = 'Go']//..//../input") 
 	private WebElement go;
 	
-	@FindBy(xpath = "//div[@class='a-section a-spacing-base a-text-center']")
-	private WebElement text;
+//	@FindBy(xpath = "//div[contains(@class, 's-main-slot')]//div[contains(@class, 's-result-item')]")
+//	private WebElement text;
 	
 	@FindBy(xpath = "//img[@data-image-index='2']")
 	private WebElement productselect;
@@ -80,9 +80,9 @@ public class Clickfashonandmens {
 		return rating;
 	}
 	
-	public WebElement getText() {
-		return text;
-	}
+//	public WebElement getText() {
+//		return text;
+//	}
 	
 	public WebElement getProductselect() {
 		return productselect;
